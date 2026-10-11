@@ -1,0 +1,128 @@
+# Hoptail Beta Terms
+
+_Effective date: 11 October 2026_
+
+These terms are an agreement between you and Dmitrii Emelianov PR Računarsko programiranje Novi Sad (Dmitrii Emelianov), a sole proprietorship registered in Serbia (“we”, “us”), the developer of Hoptail: Novi Sad, Serbia, registered with the Serbian Business Registers Agency (APR), registration number (matični broj) 67225627, tax ID (PIB) 113970406.
+
+They cover the beta of Hoptail: the Hoptail iPhone app, the `hoptail` program for macOS with its Homebrew formula, our push notification relay and the documentation that comes with them (together, “Hoptail”). By installing or using Hoptail you agree to these terms. If you don’t agree, don’t install it, or uninstall it.
+
+You get the iPhone app through Apple’s TestFlight, so Apple’s TestFlight terms apply to it too. These terms are between you and us: Apple isn’t a party to them and isn’t responsible for Hoptail.
+
+## 1. What Hoptail is
+
+Hoptail is a remote control for your own tools.
+
+- The `hoptail` program runs on your Mac, in your user account. It shows your iPhone what your tmux sessions and coding agents (such as Claude Code) are doing, and passes on what you send from your iPhone: your answers, your Allow or Deny, your text and keystrokes.
+- Everything that happens on your computer is done by your own programs and agents, on your commands and with the permissions you give them. Hoptail doesn’t run code on your projects itself and doesn’t approve anything on its own.
+- We don’t store your code, terminal output, messages or the content of notifications. They go between your Mac and your iPhone; notifications pass through our relay end-to-end encrypted, so the relay can’t read them. What the relay does store, such as an encrypted push token and an opaque handle, is described in the Hoptail Privacy Policy: https://hoptail.app/privacy.
+
+## 2. What you may do
+
+While the beta lasts, we give you a free, personal, non-exclusive, non-transferable and revocable license to install and use the iPhone app and to install and run the `hoptail` program on Macs you own or control, to use them together with our relay, and to test Hoptail and tell us what you think.
+
+## 3. What you may not do
+
+You may not, and may not let anyone else:
+
+- copy Hoptail except as needed to install and run it, or distribute, publish, sell, rent, lend, sublicense or share it. Point others to TestFlight and the Homebrew tap instead;
+- decompile, disassemble, reverse engineer or extract the program code of Hoptail, or try to get at its source code, except where applicable law expressly allows this despite this restriction;
+- modify Hoptail, remove or change its signature, notices or labels, or get around its technical limits;
+- use the relay other than through Hoptail, overload it, or try to read or disrupt other people’s notifications;
+- use Hoptail to break the law or the rights of others, or to get access to computers or accounts you aren’t authorized to use.
+
+## 4. It’s a beta
+
+Hoptail is pre-release. It may have bugs, change or lose features, stop working with older versions of the app or the `hoptail` program, or be withdrawn at any time, with or without notice.
+
+## 5. Your responsibility
+
+- **What you approve is your decision.** You’re responsible for what you send through Hoptail, including every Allow, answer, command and keystroke, and for what your agents and programs then do on your computers, servers, websites, production systems, accounts and data.
+- **Look before you allow.** A notification or a screen on your iPhone shows only part of what an agent is about to do. If you’re not sure, open the terminal or answer at your Mac.
+- **Keep backups.** Use version control and backups for anything that matters. Restoring your systems and data is up to you.
+- **Not for critical systems.** Don’t use Hoptail to control systems whose failure could lead to death, personal injury, or serious damage to property or the environment, or other systems where downtime is critical.
+- **Keep your devices safe.** Anyone who can use your unlocked iPhone with Hoptail paired can send input to your Mac. Lock your iPhone, and unpair a device you’ve lost.
+
+## 6. Other companies’ services
+
+Hoptail works with tools and services we don’t make or control: Claude Code and other coding agents, tmux, Tailscale, Homebrew, and Apple’s TestFlight and push notification service. They run under their own terms and your own accounts with their providers. We’re not responsible for their availability, changes or failures, or for what they do.
+
+## 7. Feedback
+
+You don’t have to send feedback. If you do, we may use it in any way, without any obligation to you.
+
+## 8. Your data
+
+How Hoptail handles personal data, and what the relay stores, is described in the Hoptail Privacy Policy: https://hoptail.app/privacy.
+
+## 9. Ownership
+
+Hoptail is licensed, not sold. We and our licensors keep all rights, title and interest in it, including all intellectual property rights. Any right not expressly granted here is reserved.
+
+## 10. Open-source components
+
+The `hoptail` program includes open-source components, such as Node.js, under their own licenses. Those licenses, listed in the `THIRD_PARTY_NOTICES.txt` file that comes with it, apply to those components, and nothing in these terms limits your rights under them.
+
+## 11. How long this lasts
+
+These terms last until the first general release of Hoptail, when the terms for that release replace them, unless they end earlier:
+
+- we may end the beta, or your participation in it, at any time;
+- they end automatically if you break them.
+
+When they end, stop using Hoptail: uninstall the `hoptail` program (`hoptail uninstall`, then `brew uninstall hoptail`) and delete the app. Sections 5, 7, 9 and 12–16 survive.
+
+## 12. No warranty
+
+Hoptail is provided “as is” and “as available”, without warranty of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, title and non-infringement. In particular, we don’t promise that:
+
+- Hoptail will be uninterrupted, secure or free of errors, or that it won’t harm your data;
+- the relay will be available, or that notifications will be delivered, or delivered on time. A missed or late notification can leave an agent waiting, so don’t rely on Hoptail as your only way to watch work that matters;
+- Hoptail will work with every version of macOS, iOS, tmux or a coding agent.
+
+You use Hoptail at your own risk.
+
+## 13. Limitation of liability
+
+To the fullest extent the law allows, we are not liable for:
+
+- indirect, incidental, special, consequential or punitive damages;
+- lost profits, revenue, business, goodwill or savings;
+- loss or corruption of data;
+- business interruption or downtime;
+- claims made against you by others;
+
+arising out of or related to Hoptail or these terms, even if we were told such damages were possible.
+
+Our total liability for all claims related to Hoptail or these terms is limited to the greater of the amount you paid us for Hoptail in the 12 months before the claim and 50 euros. During the free beta that is 50 euros.
+
+## 14. Indemnity
+
+To the extent the law allows, you will compensate us for claims made against us by others, and for the reasonable costs of dealing with them, including legal fees, that arise from your use of Hoptail, from what your agents and programs did on your instructions, or from your breaking these terms. This doesn’t apply to the extent a claim was caused by our intent or gross negligence.
+
+## 15. What these terms don’t limit
+
+Nothing in these terms excludes or limits:
+
+- our liability for intent or gross negligence;
+- our liability for death or personal injury we cause;
+- your mandatory rights as a consumer, including under the law of the country where you live;
+- any other liability that the applicable law doesn’t allow to be excluded or limited.
+
+Where the law doesn’t allow a limit in sections 12–14, that limit applies only as far as the law allows.
+
+## 16. General
+
+- These terms are governed by the laws of the Republic of Serbia, without regard to its conflict-of-law rules.
+- Courts: the competent court in Novi Sad, Serbia. If you are a consumer, you may also bring proceedings in the courts of your country of residence, and you keep the protection of its mandatory laws.
+- Export: Hoptail uses encryption. You’re responsible for following the export, import and sanctions laws that apply to you when you download, use or move it.
+- If a court holds part of these terms unenforceable, the rest stays in effect.
+- We may update these terms for later beta builds. The version that comes with a build applies to that build.
+- These terms are the whole agreement between you and us about Hoptail.
+
+## 17. Trademarks
+
+Claude and Claude Code are trademarks of Anthropic, PBC. Apple, iPhone, Mac, macOS, App Store and TestFlight are trademarks of Apple Inc., registered in the U.S. and other countries. Tailscale is a registered trademark of Tailscale Inc. tmux, Homebrew and other names belong to their owners. We use these names only to say what Hoptail works with. Hoptail isn’t affiliated with or endorsed by them.
+
+## 18. Contact
+
+Questions about these terms: feedback@hoptail.app.
