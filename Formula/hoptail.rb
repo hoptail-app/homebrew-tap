@@ -6,16 +6,16 @@
 class Hoptail < Formula
   desc "Mac daemon for the Hoptail iPhone app: tmux and coding agents from your phone"
   homepage "https://hoptail.app"
-  url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.2/hoptail-0.1.2-darwin-arm64.tar.gz"
-  sha256 "767ccfbc390ea9a30c6807055c7088e06c4141d3bba6944585a8272d33180529"
+  url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.3/hoptail-0.1.3-darwin-arm64.tar.gz"
+  sha256 "fdcf3bb45969deac28b9e562c58f3bfddb1073376e8ef0a950bfd1d0cbfc0bbd"
   license :cannot_represent # closed binary, see LICENSE in the release archive
 
   # The same files as a bottle, so brew pours it: without one brew treats the formula as a source build and refuses
   # Command Line Tools older than macOS (#144). One bottle for all: the binary is the same on every macOS 15+, and
   # nothing in it holds the Homebrew prefix.
   bottle do
-    root_url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.2"
-    sha256 cellar: :any_skip_relocation, all: "ac11f9f5cdaf45152468cf642851016cc4b15e65799444d58612869a52fd614b"
+    root_url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.3"
+    sha256 cellar: :any_skip_relocation, all: "54941366b0be4a78cc18380113dbcb3b4a0552e10d6b3b01e1cde9250b0e6b1d"
   end
 
   # Apple silicon only; macOS 15 is the oldest Homebrew supports there (release/daemon/README.md).
