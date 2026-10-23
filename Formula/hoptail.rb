@@ -1,26 +1,30 @@
 # frozen_string_literal: true
 
-# Template of the formula in hoptail-app/homebrew-tap (ADR-0021, item 3). release.sh fills in url, sha256 and the
-# bottle's root_url and sha256 for each release (Homebrew reads the version from the url) and pushes the result to the
-# tap; edit everything else here.
+# Template of the formula in hoptail-app/homebrew-tap (ADR-0021, item 3). release.sh fills in the version, each
+# platform's url and sha256 and the bottles' root_url and sha256s for each release (formula.sh: an url line names its
+# platform, the sha256 line after it is that platform's) and pushes the result to the tap; edit everything else here.
 class Hoptail < Formula
-  desc "Mac daemon for the Hoptail iPhone app: tmux and coding agents from your phone"
+  desc "Daemon for the Hoptail iPhone app: tmux and coding agents from your phone"
   homepage "https://hoptail.app"
-  url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.6/hoptail-0.1.6-darwin-arm64.tar.gz"
-  sha256 "5841dde276597b23d97f6bd0d5178af80642c5cca1355f225324a2bee4f7de15"
+  # Explicit: each platform's url carries the same version, and a file:// url (local-tap.sh) would give "64" of arm64.
+  version "0.1.7"
   license :cannot_represent # closed binary, see LICENSE in the release archive
 
-  # The same files as a bottle, so brew pours it: without one brew treats the formula as a source build and refuses
-  # Command Line Tools older than macOS (#144). One bottle for all: the binary is the same on every macOS 15+, and
-  # nothing in it holds the Homebrew prefix.
-  bottle do
-    root_url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.6"
-    sha256 cellar: :any_skip_relocation, all: "0fb828b41a2a3c5a818c021835d3cbd9cd718d3ff6583af9e05059519f26c9e9"
+  on_macos do
+    # Apple silicon only; macOS 15 is the oldest Homebrew supports there (release/daemon/README.md).
+    url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.7/hoptail-0.1.7-darwin-arm64.tar.gz"
+    sha256 "9049b2ab8f18fcf8b2460faef1a49e4888e6941b6ae031b9195b05b8575d8c54"
+    depends_on arch: :arm64
+    depends_on macos: :sequoia
   end
 
-  # Apple silicon only; macOS 15 is the oldest Homebrew supports there (release/daemon/README.md).
-  depends_on arch: :arm64
-  depends_on macos: :sequoia
+  # The same files as bottles, so brew pours them: without one brew treats the formula as a source build and refuses
+  # Command Line Tools older than macOS (#144). A bottle per platform, not `all`: with on_linux an `all` bottle would
+  # pour the Mach-O on Linux. arm64_sequoia serves every newer macOS too; nothing in the binaries holds the prefix.
+  bottle do
+    root_url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e07627db61321f9633aa53b1200c073ff20ed3a1e997f05048420fdc45e01977"
+  end
   # tmux isn't a dependency: brew upgrades an outdated dependency on every install, and that would swap tmux under
   # the agents already running in it. `hoptail setup` checks for tmux and says how to install it.
 
@@ -32,7 +36,7 @@ class Hoptail < Formula
 
   def caveats
     <<~EOS
-      Hoptail needs tmux. If you don't have it: brew install tmux
+      Hoptail needs tmux. If you don't have it: #{OS.mac? ? "brew install tmux" : "install it with your package manager"}
       Set up the daemon and pair your iPhone:
         hoptail setup
         hoptail pair
