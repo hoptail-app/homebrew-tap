@@ -7,13 +7,13 @@ class Hoptail < Formula
   desc "Daemon for the Hoptail iPhone app: tmux and coding agents from your phone"
   homepage "https://hoptail.app"
   # Explicit: each platform's url carries the same version, and a file:// url (local-tap.sh) would give "64" of arm64.
-  version "0.1.16"
+  version "0.1.17"
   license :cannot_represent # closed binary, see LICENSE in the release archive
 
   on_macos do
     # Apple silicon only; macOS 15 is the oldest Homebrew supports there (release/daemon/README.md).
-    url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.16/hoptail-0.1.16-darwin-arm64.tar.gz"
-    sha256 "b151c0193e6ef097ed5fb5690ef26eac3e7acdc4878efb1afacee4944862d20d"
+    url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.17/hoptail-0.1.17-darwin-arm64.tar.gz"
+    sha256 "e79a2f9faff372eb1494fd424339fdc07a161f488d7c4ee1dc3d2a8ac955cc50"
     depends_on arch: :arm64
     depends_on macos: :sequoia
   end
@@ -21,12 +21,12 @@ class Hoptail < Formula
     # Linux (#190): x64 and arm64, glibc 2.28+, systemd 240+ for the user service (release/daemon/README.md). A Mac-only
     # release (release.sh with LINUX=0) leaves this block out.
     on_intel do
-      url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.16/hoptail-0.1.16-linux-x64.tar.gz"
-      sha256 "b65db6767d7de70704c1667545e9b63d6a390d5cac3f57e3746a6ff547edc630"
+      url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.17/hoptail-0.1.17-linux-x64.tar.gz"
+      sha256 "dc278399a795ab6d6deab5dcc9fa16515db99e8b8a1048893784e640f2d29fb1"
     end
     on_arm do
-      url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.16/hoptail-0.1.16-linux-arm64.tar.gz"
-      sha256 "1464b65de9ea8a0ff70fb1fded23e2ede43db1665c21da0e5d81f8a89eb77fc1"
+      url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.17/hoptail-0.1.17-linux-arm64.tar.gz"
+      sha256 "1b2926a96a6b16903a6c7a6e86c7c31aff7b161bb1e5cfc3aca974bcb75c5fcb"
     end
   end
 
@@ -34,10 +34,10 @@ class Hoptail < Formula
   # Command Line Tools older than macOS (#144). A bottle per platform, not `all`: with on_linux an `all` bottle would
   # pour the Mach-O on Linux. arm64_sequoia serves every newer macOS too; nothing in the binaries holds the prefix.
   bottle do
-    root_url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.16"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5730c7a2b0ef5d0debd139695e59815a20f07c0d1331a6af6b47cf23089537fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0bffb0198ed25c7aa67301be12be6062a864658a1f02fc6350f3c344bebf406d"
-    sha256 cellar: :any_skip_relocation, arm64_linux: "abfb201746589458d82e664ce3183be465502e02342fdd5c493653dd3430dccd"
+    root_url "https://github.com/hoptail-app/homebrew-tap/releases/download/v0.1.17"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "57ef307aa7621eb98904c824a78c52b8d496ed2b71ef496322fdd86e82707976"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "463538afb49255dda36afec39646f945f4d063a3c6d5253bda4d0d2778006b77"
+    sha256 cellar: :any_skip_relocation, arm64_linux: "8efb349bbdc3d7017487e47b17f92a108a2c39aeeb1a0232e770cdf183a883bd"
   end
   # tmux isn't a dependency: brew upgrades an outdated dependency on every install, and that would swap tmux under
   # the agents already running in it. `hoptail setup` checks for tmux and says how to install it.
